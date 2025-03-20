@@ -11,11 +11,11 @@ export default function Header() {
       />
 
       {/* Navigation */}
-      <nav className="flex gap-6">
-        <a href="home" className="text-black dark:text-white">HOME</a>
-        <a href="about" className="text-black dark:text-white">ABOUT</a>
-        <a href="services" className="text-black dark:text-white">SERVICES</a>
-        <a href="contact" className="text-black dark:text-white">CONTACT</a>
+      <nav className="flex  gap-6">
+        <a href="home" className="text-[#3E180E] dark:text-[#3E180E]">HOME</a>
+        <a href="about" className="text-[#3E180E] dark:text-[#3E180E]">ABOUT</a>
+        <a href="services" className="text-[#3E180E] dark:text-[#3E180E]">SERVICES</a>
+        <a href="contact" className="text-[#3E180E] dark:text-[#3E180E]">CONTACT</a>
       </nav>
     </header>
   );

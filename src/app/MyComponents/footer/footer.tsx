@@ -11,17 +11,17 @@ export default function Footer() {
           className="w-24 h-24 object-contain"
         />
         <div>
-          <h2 className="text-brown-700 font-bold text-lg">
+          <h2 className="text-[#3E180E] font-bold text-lg">
             Central Territory Plumbing Pty Ltd
           </h2>
-          <p className="text-brown-600 text-sm">
+          <p className="text-[#3E180E] text-sm">
             Plumbing solutions in the Territory
           </p>
         </div>
       </div>
 
       {/* Copyright Section */}
-      <p className="text-brown-700 text-sm">
+      <p className="text-[#3E180E] text-sm">
         Copyright (C) 2025
       </p>
     </footer>
