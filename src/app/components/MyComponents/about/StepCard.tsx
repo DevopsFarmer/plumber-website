@@ -18,8 +18,8 @@ const StepCard: React.FC<StepCardProps> = ({ image, title, highlightedText, desc
 
       {/* Content Section */}
       <div className="w-full md:w-1/2 text-center md:text-left mx-10">
-        <h3 className="text-xl font-semibold">
-          {title} <span className="bg-green-400 text-center text-white px-2 py-1 rounded">{highlightedText}</span>
+        <h3 className="text-xl text-black font-semibold">
+          {title} <span className="bg-[#3E180E] text-center text-white px-2 py-1 rounded">{highlightedText}</span>
         </h3>
         <p className="text-gray-600 mt-2">{description}</p>
       </div>

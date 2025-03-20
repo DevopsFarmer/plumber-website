@@ -6,19 +6,19 @@ const services = [
   
   const MostlyBooked = () => {
     return (
-      <section className="p-8">
-        <h2 className="text-3xl font-bold mb-6 dark:text-white">Mostly Booked</h2>
+      <section className="p-8 bg-white">
+        <h2 className="text-3xl font-bold mb-6 text-center text-[#3E180E] text-4xl font-bold bg-white">Mostly Booked</h2>
         <div className="flex flex-wrap gap-8">
           {services.map((service) => (
-            <div key={service.id} className="flex flex-col items-center">
+            <div key={service.id} className="flex flex-col bg-opacity-60 items-center">
               <img
                 src={service.image}
                 alt={service.title}
                 className="w-28 h-28 object-cover rounded-md shadow-md"
               />
-              <h3 className="text-lg font-semibold mt-2">{service.title}</h3>
+              <h3 className=" text-[#3E180E] font-semibold mt-2">{service.title}</h3>
               <p className="text-green-600 font-semibold">Rs. {service.price}</p>
-              <button className="mt-2 bg-blue-700 text-white px-4 py-1 rounded-md flex items-center gap-1">
+              <button className="mt-2 bg-[#3E180E] px-4 py-1 rounded-md flex items-center gap-1">
                 Add <span>➕</span>
               </button>
             </div>

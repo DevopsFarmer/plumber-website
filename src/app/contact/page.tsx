@@ -6,8 +6,8 @@ export default function ContactPage() {
     <main className="bg-white py-12 px-6 lg:px-24">
       {/* Page Title */}
       <section className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-brown-800">Get in Touch?</h1>
-        <p className="text-brown-700 mt-4 max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-[#3E180E]">Get in Touch?</h1>
+        <p className="text-[#3E180E] mt-4 max-w-2xl mx-auto">
           Get in touch with us for reliable plumbing services in Alice Springs.
           Whether it’s repairs, installations, or maintenance, our experienced
           team is here to help.

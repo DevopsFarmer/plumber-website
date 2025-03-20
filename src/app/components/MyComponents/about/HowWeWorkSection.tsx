@@ -28,7 +28,7 @@ const steps = [
 const HowWeWorkSection: React.FC = () => {
   return (
     <section className="container mx-auto text-center p-8">
-      <h2 className="text-3xl font-bold text-blue-900">How we work?</h2>
+      <h2 className="text-3xl font-bold text-[#3E180E]">How we work?</h2>
       <p className="text-gray-500 mt-2">
         We are the smart way to get things done by connecting you with others in your neighborhood.
       </p>
@@ -40,7 +40,7 @@ const HowWeWorkSection: React.FC = () => {
       </div>
 
       <h3 className="text-2xl font-bold text-blue-900 mt-10">
-        We're big on <span className="text-green-500">Trust & Safety</span>.
+        We're big on <span className="text-[#3E180E]">Trust & Safety</span>.
       </h3>
     </section>
   );
