@@ -1,5 +1,5 @@
 import React from "react";
-
+import Link from "next/link";
 interface HeroSectionProps {
   title: string;
   description: string[];
@@ -22,10 +22,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, description, buttonTex
             <li key={index}>{item}</li>
           ))}
         </ul>
-        <button className="mt-6 px-6 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-700">
-          {buttonText}
-        </button>
-      </div>
+        <Link href="tel:+918824760689">
+          <div className="mt-6 px-6 w-38 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-700">
+            {buttonText}
+          </div>
+        </Link>
+       </div>
     </section>
   );
 };

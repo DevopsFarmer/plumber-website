@@ -19,7 +19,7 @@ export default function Header() {
       </div>
 
       {/* Navigation */}
-      <nav className="flex gap-6">
+      <nav className="flex  gap-6">
         <a href="home" className="text-brown-700 dark:text-black">HOME</a>
         <a href="about" className="text-brown-700 dark:text-white">ABOUT</a>
 
