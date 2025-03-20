@@ -8,11 +8,11 @@ const ServicePage = () => {
   return (
 
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
-            <ServiceHero/>
-            <MostlyBooked/>
-            <ServicesSection/>
-            <ReviewSection />
-            <FAQCard/>
+        <ServiceHero/>
+        <MostlyBooked/>
+        <ServicesSection/>
+      <ReviewSection />
+      <FAQCard/>
     </div>
   );
 };

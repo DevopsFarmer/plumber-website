@@ -1,12 +1,12 @@
 "use client";
 
-export default function footer() {
+export default function Footer() {
   return (
     <footer className="bg-[#FCF8E8] flex justify-between items-center p-6">
       {/* Logo and Company Name */}
       <div className="flex items-center space-x-3">
         <img 
-          src="/aboutImg/logo.png" // Update this path as per your actual image location
+          src="/aboutImg/image 195.png" // Update this path as per your actual image location
           alt="Company Logo" 
           className="w-24 h-24 object-contain"
         />
