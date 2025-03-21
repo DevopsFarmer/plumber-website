@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-
+import Link from "next/link";
 interface HeroSectionProps {
   title: string;
   description: string[];
@@ -23,9 +23,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, description, buttonTex
             <li key={index}>{item}</li>
           ))}
         </ul>
-        <button 
-        onClick={() => window.location.href = "tel:+6378291287"}
-        className="mt-6 px-6 py-2 bg-[#3E180E] text-white rounded-md hover:bg-blue-700">
+        <button className="mt-6 px-6 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-700">
           {buttonText}
         </button>
       </div>

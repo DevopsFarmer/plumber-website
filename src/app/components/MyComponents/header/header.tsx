@@ -23,6 +23,7 @@ export default function Header() {
 
       {/* Navigation */}
       <nav className="flex  gap-6">
+<<<<<<< HEAD
         <a href="home" className="text-black font-bold">HOME</a>
         <a href="about" className="text-black font-bold">ABOUT</a>
 
@@ -44,6 +45,12 @@ export default function Header() {
         </div>
 
         <a href="contact" className="text-black font-bold">CONTACT US</a>
+=======
+        <a href="home" className="text-[#3E180E] dark:text-[#3E180E]">HOME</a>
+        <a href="about" className="text-[#3E180E] dark:text-[#3E180E]">ABOUT</a>
+        <a href="services" className="text-[#3E180E] dark:text-[#3E180E]">SERVICES</a>
+        <a href="contact" className="text-[#3E180E] dark:text-[#3E180E]">CONTACT</a>
+>>>>>>> 959d47a83f1c27df7abe25f857f1a0d5b561ad2b
       </nav>
     </header>
   );

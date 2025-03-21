@@ -7,7 +7,7 @@ const services = [
   const MostlyBooked = () => {
     return (
       <section className="p-8 bg-white">
-        <h2 className="text-3xl font-bold mb-6 text-center text-[#3E180E] text-4xl font-bold bg-white">Mostly Booked</h2>
+        <h2 className="text-3xl font-bold mb-6 text-[#3E180E] text-4xl font-bold bg-white">Mostly Booked</h2>
         <div className="flex flex-wrap gap-8">
           {services.map((service) => (
             <div key={service.id} className="flex flex-col bg-opacity-60 items-center">
