@@ -17,9 +17,7 @@ export default function Header() {
           <h2 className="text-[#3E180E] font-bold text-lg">
             Central Territory Plumbing Pty Ltd
           </h2>
-          <p className="text-[#3E180E] text-sm">
-            Plumbing solutions in the Territory
-          </p>
+         
         </div>
       </div>
 
