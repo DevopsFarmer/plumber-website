@@ -2,7 +2,7 @@ import FAQCard from "./components/MyComponents/services/FAQ/FAQCard";
 import MostlyBooked from "./components/MyComponents/services/Mostlybooked/booked";
 import ReviewSection from "./components/MyComponents/services/review/review";
 import ServicesSection from "./components/MyComponents/services/serviceName/serviceSection";
-import ServiceHero from "./MyComponents/services/serviceHero"
+import ServiceHero from "./components/MyComponents/services/serviceHero"
 
 
 const ServicePage = () => {

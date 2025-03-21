@@ -39,7 +39,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-brown-800 font-medium">Full Name</label>
+          <label className="block text-[#3E180E] font-medium">Full Name</label>
           <input
             type="text"
             name="fullName"
@@ -51,7 +51,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-brown-800 font-medium">Email</label>
+          <label className="block text-[#3E180E] font-medium">Email</label>
           <input
             type="email"
             name="email"
@@ -63,7 +63,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-brown-800 font-medium">Phone</label>
+          <label className="block text-[#3E180E] font-medium">Phone</label>
           <input
             type="text"
             name="phone"
@@ -75,7 +75,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label className="block text-brown-800 font-medium">Services</label>
+          <label className="block text-[#3E180E] font-medium">Services</label>
           <select
             name="service"
             value={formData.service}
@@ -92,8 +92,8 @@ export default function ContactForm() {
       </div>
 
       {/* Message Box */}
-      <div className="mt-4">
-        <label className="block text-brown-800 font-medium">Message</label>
+      <div className="mt-4">text
+        <label className="block text-[#3E180E] font-medium">Message</label>
         <textarea
           name="message"
           value={formData.message}
