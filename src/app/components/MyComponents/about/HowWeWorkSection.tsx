@@ -28,8 +28,8 @@ const steps = [
 const HowWeWorkSection: React.FC = () => {
   return (
     <section className="container mx-auto text-center p-8">
-      <h2 className="text-3xl font-bold text-[#3E180E]">How we work?</h2>
-      <p className="text-gray-500 mt-2">
+      <h2 className="text-4xl font-bold text-[#3E180E]">How we work?</h2>
+      <p className="text-xl text-gray-500 mt-2 mb-16">
         We are the smart way to get things done by connecting you with others in your neighborhood.
       </p>
 

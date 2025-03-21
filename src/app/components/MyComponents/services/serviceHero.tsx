@@ -7,7 +7,7 @@ const ServicePage = () => {
     description: [
       
     ],
-    buttonText: "Call now",
+    buttonText: "Call Us!!",
     imageUrl: "/serviceImg/home/unsplash4PPY1v2xChU.jpg", // Corrected path
   };
 
