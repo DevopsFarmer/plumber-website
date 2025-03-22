@@ -1,4 +1,4 @@
-import HeroSection from "./serviceHome/serviceHome";
+import Home from "./serviceHome/serviceHome";
 
 
 const ServicePage = () => {
@@ -13,7 +13,7 @@ const ServicePage = () => {
 
   return (
     <div>
-      <HeroSection {...heroData} />
+      <Home {...heroData} />
     </div>
   );
 };
