@@ -34,7 +34,7 @@ const FAQCard = () => {
         Frequently Asked Questions
       </h2>
       <p className="text-[#3E180E] font-bold text-lg mb-6">
-        Your questions, Answered. _________________________________________________________________________________________________
+        Your questions, Answered. _______
       </p>
 
       <div className="flex justify-center items-center">
