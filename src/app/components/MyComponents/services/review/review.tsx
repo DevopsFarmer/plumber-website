@@ -35,7 +35,6 @@ const ReviewSection = () => {
   return (
     <section className="p-6 sm:p-8 bg-white items-center">
       <h2 
-        style={{ fontFamily: "Nunito, sans-serif" }}
       className="text-4xl sm:text-4xl font-bold text-[#3E180E] mb-6">Reviews</h2>
       
       <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">

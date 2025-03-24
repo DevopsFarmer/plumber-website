@@ -9,16 +9,24 @@ const services = [
 
 const ServicesList: React.FC = () => {
   return (
-    <section className="p-6 bg-white">
-      <h2 
-        style={{ fontFamily: "Nunito, sans-serif" }}
-      className="text-3xl font-bold mb-6 text-[#3E180E]">Mostly Booked</h2>
+    <section className="p-6 bg-white flex flex-col">
+      {/* Title */}
+      <h2 className="text-3xl font-bold mb-6 text-[#3E180E]">
+        Mostly Booked
+      </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 place-items-center">
+      {/* Services Grid */}
+     
+      <section className="p-6 bg-white flex flex-col items-center">
+      {/* Title */}
+    
+      {/* Services Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 place-items-center w-full max-w-screen-lg">
         {services.map((service) => (
           <ServiceCard key={service.id} title={service.title} price={service.price} imageSrc={service.imageSrc} />
         ))}
       </div>
+    </section>
     </section>
   );
 };

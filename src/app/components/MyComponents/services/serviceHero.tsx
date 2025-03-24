@@ -8,7 +8,7 @@ const ServicePage = () => {
       
     ],
     buttonText: "Call Us!!",
-    imageUrl: "/serviceImg/home/unsplash4PPY1v2xChU.jpg", // Corrected path
+    imageUrl: "/serviceImg/home/unsplash_4PPY1v2xChU.png", // Corrected path
   };
 
   return (

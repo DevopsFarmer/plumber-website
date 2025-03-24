@@ -10,24 +10,21 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu state
 
   return (
-    <header className="bg-[#FCF8E8] shadow-md">
-      <div className="flex justify-between items-center p-4 md:p-6">
+    <header className="bg-[#FCF8E8] shadow-lg shadow-black-500/50 fixed top-0 left-0 w-full z-50">
+      <div className="flex justify-between items-center py-4 pl-4 md:pl-6">
         {/* Logo Section */}
-        <div className="flex items-center space-x-3">
-          <img
-            src="/aboutImg/image 195.png"
-            alt="Company Logo"
-            className="w-16 h-16 md:w-24 md:h-24 object-contain"
-          />
-         <h2
-  style={{ fontFamily: "Nunito, sans-serif" }}
-  className="text-[#3E180E] font-bold text-md md:text-sm"
->
-  Central Territory <br /> Plumbing Pty Ltd
-</h2>
-
-
-        </div>
+        <a href="/" rel="noopener noreferrer">
+  <div className="flex items-center space-x-3">
+    <img
+      src="headerImg/image 197.png"
+      alt="Company Logo"
+      className="w-16 h-16 md:w-24 md:h-24 object-contain"
+    />
+    <h2 className="text-[#3E180E] font-bold text-md md:text-sm">
+      Central Territory <br /> Plumbing Pty Ltd
+    </h2>
+  </div>
+</a>
 
         {/* Mobile Menu Button */}
         <button
@@ -38,8 +35,9 @@ export default function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex gap-6">
-          <a href="about" className="text-[#3E180E] font-bold">
+        <nav className="hidden md:flex text-center text-xl gap-24 py-0">
+          
+          <a href="about" className="text-[#3E180E] font py-4">
             ABOUT
           </a>
 
@@ -47,7 +45,7 @@ export default function Header() {
           <div className="relative">
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="text-[#3E180E] font-bold focus:outline-none"
+              className="text-[#3E180E] font focus:outline-none py-4"
             >
               SERVICES ▼
             </button>
@@ -95,8 +93,8 @@ export default function Header() {
 
           <a
             href="contact"
-            className="bg-[#3E180E] text-white font-bold px-4 py-2 rounded-md bg-gradient-to-r from-[#76200F] to-[#A53C27]"
-          >
+            className="bg-[#3E180E] text-white font-bold px-4 py-4 rounded-l-lg bg-gradient-to-r from-[#76200F] to-[#A53C27]"
+            >
             CONTACT US
           </a>
         </nav>
@@ -104,7 +102,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden flex flex-col items-center bg-[#FCF8E8] p-4 space-y-4 shadow-md">
+        <div className="flex justify-between items-center md:p-6 w-full max-w-7xl mx-auto flex-col bg-[#FCF8E8] p-4 space-y-4 shadow-md">
           <a
             href="about"
             className="text-[#3E180E] font-bold text-lg"
@@ -147,7 +145,7 @@ export default function Header() {
           </div>
           <a
             href="contact"
-            className="bg-[#3E180E] text-white font-bold px-4 py-2 rounded-md bg-gradient-to-r from-[#76200F] to-[#A53C27]"
+            className="bg-[#3E180E] text-white font-bold px-4 rounded-md bg-gradient-to-r from-[#76200F] to-[#A53C27]"
             onClick={() => setIsMenuOpen(false)}
           >
             CONTACT US
