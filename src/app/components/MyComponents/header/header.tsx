@@ -16,7 +16,7 @@ export default function Header() {
         <a href="/" rel="noopener noreferrer">
   <div className="flex items-center space-x-3">
     <img
-      src="headerImg/image 197.png"
+      src="HeaderImg/image 197.png"
       alt="Company Logo"
       className="w-16 h-16 md:w-24 md:h-24 object-contain"
     />
