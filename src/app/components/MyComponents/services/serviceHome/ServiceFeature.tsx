@@ -3,7 +3,7 @@ import { FaAward, FaBullseye, FaUsers } from "react-icons/fa";
 
 const ServiceFeatures = () => {
   return (
-    <div className="bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white rounded-t-2xl py-8 px-6 shadow-lg">
+    <div className="bg-gradient-to-r from-[#1e3c72] to-[#2a5298] text-white rounded-t-2xl py-8 px-6 shadow-lg opacity-50">
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 text-center">
         
         {/* Feature 1 */}

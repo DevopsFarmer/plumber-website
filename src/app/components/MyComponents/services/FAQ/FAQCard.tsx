@@ -54,7 +54,7 @@ const FAQCard = () => {
           />
         </button>
         {openIndex === index && (
-          <div className="px-6 py-4 text-[#3E180E] text-gray-200 opacity-80">{faq.answer}</div>
+          <div className="px-6 py-4 text-[#3E180E] opacity-80">{faq.answer}</div>
         )}
       </div>
     ))}

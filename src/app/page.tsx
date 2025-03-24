@@ -10,8 +10,8 @@ const ServicePage = () => {
 
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
         <ServiceHero/>
-        <MostlyBooked/>
         <ServicesSection/>
+        <MostlyBooked/>
       <ReviewSection />
       <FAQCard/>
     </div>
