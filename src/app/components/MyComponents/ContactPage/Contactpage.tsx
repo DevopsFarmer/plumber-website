@@ -36,52 +36,55 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-gray-100 p-6 rounded-lg shadow-md w-full">
+    <form onSubmit={handleSubmit} className="p-6  w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[#3E180E] font-medium">Full Name</label>
+          {/* <label className="block text-[#3E180E] font-medium">Full Name</label> */}
           <input
-            type="text"
-            name="fullName"
-            value={formData.fullName}
-            onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-            placeholder="Your Name"
-            required
-          />
+              type="text"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+              className="w-full p-2 border text-black border-gray-300 bg-[#F7F7F7] rounded mt-1 placeholder-black"
+              placeholder="Name"
+              required
+            />
+
         </div>
         <div>
-          <label className="block text-[#3E180E] font-medium">Email</label>
+          {/* <label className="block text-[#3E180E]  font-medium">Email</label> */}
           <input
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-            placeholder="Your Email"
+            className="w-full p-2 border text-black border-gray-300 bg-[#F7F7F7] rounded mt-1 placeholder-black"
+            placeholder="Email"
             required
           />
         </div>
         <div>
-          <label className="block text-[#3E180E] font-medium">Phone</label>
+          {/* <label className="block text-[#3E180E] font-medium">Phone</label> */}
           <input
             type="text"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded mt-1"
-            placeholder="Your Phone"
+            className="w-full p-2 border text-black border-gray-300 bg-[#F7F7F7] rounded mt-1 placeholder-black"
+
+            placeholder="Phone"
             required
           />
         </div>
         <div>
-          <label className="block text-[#3E180E] font-medium">Services</label>
+          {/* <label className="block text-[#3E180E] font-medium">Services</label> */}
           <select
             name="service"
             value={formData.service}
             onChange={handleChange}
-            className="w-full p-2 border border-gray-300 rounded mt-1"
+            className="w-full p-2 border text-black border-gray-300 bg-[#F7F7F7] rounded mt-1 placeholder-black"
             required
+            
           >
             <option value="">Select a service</option>
             <option value="Installation">Installation</option>
@@ -93,14 +96,14 @@ export default function ContactForm() {
 
       {/* Message Box */}
       <div className="mt-4">text
-        <label className="block text-[#3E180E] font-medium">Message</label>
+        {/* <label className="block text-[#3E180E] font-medium">Message</label> */}
         <textarea
           name="message"
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="w-full p-2 border border-gray-300 rounded mt-1"
-          placeholder="Write your message..."
+          className="w-full p-2 border text-black border-gray-300 bg-[#F7F7F7] rounded mt-1 placeholder-black"
+          placeholder="Message"
           required
         ></textarea>
       </div>

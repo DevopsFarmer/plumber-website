@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi"; 
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false); 
@@ -43,12 +44,19 @@ export default function Header() {
 
           {/* Services Dropdown */}
           <div className="relative">
-      <button
-        onClick={() => setIsServicesOpen(!isServicesOpen)}
-        className="text-[#3E180E]  text-lg py-4"
-      >
-        SERVICES ▼
-      </button>
+          <div
+      onMouseEnter={() => setIsServicesOpen(true)}
+      onMouseLeave={() => setIsServicesOpen(false)}
+      className="relative"
+    >
+      <div className="flex text-[#3E180E] text-lg py-4 cursor-pointer">
+        SERVICES
+        <ChevronDown
+          className={`transition-transform duration-300 ${
+            isServicesOpen ? "rotate-180" : ""
+          }`}
+        />
+      </div>
 
       <AnimatePresence>
         {isServicesOpen && (
@@ -57,21 +65,22 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-full left-0 mt-2 bg-white shadow-md rounded-md w-48 z-10"
+            className="absolute top-full left-0 w-56 bg-[#F9F7E9] shadow-xl text-left z-10"
           >
             {[
-              { href: "repairs", label: "Tap Repairs" },
-              { href: "installations", label: "Drainage Pipes" },
-              { href: "maintenance", label: "Water Tanks" },
-              { href: "repairs", label: "Hot Water Systems" },
-              { href: "installations", label: "Gas Fitting" },
-              { href: "maintenance", label: "Septic Tanks" },
+              { href: "service", label: "Hot water System" },
+              { href: "service", label: "Leakage Detection" },
+              { href: "service", label: "Commercial Plumbing" },
+              { href: "service", label: "Industrial Plumbing" },
+              { href: "service", label: "Residential Plumbing" },
+              { href: "service", label: "Remote area Plumbing" },
+              { href: "service", label: "Bathroom Kitchen Renovation" },
+              { href: "service", label: "Any other Requests" },
             ].map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className="block px-4 py-2 text-[#3E180E] hover:bg-gray-200"
-                onClick={() => setIsServicesOpen(false)}
+                className="block px-4 py-2 text-[#3E180E] text-sm hover:bg-[#FF8239] transition-all"
               >
                 {item.label}
               </a>
@@ -79,6 +88,7 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
     </div>
 
           <a
@@ -115,17 +125,22 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white shadow-md rounded-md w-48 z-10 md:left-0 md:translate-x-0"
+            className="absolute top-full left-1/2  transform -translate-x-1/2 mt-2 bg-white shadow-md rounded-md w-48 z-10 md:left-0 md:translate-x-0"
           >
             {[
-              { href: "repairs", label: "Repairs" },
-              { href: "installations", label: "Installations" },
-              { href: "maintenance", label: "Maintenance" },
+               { href: "service", label: "Hot water System" },
+               { href: "service", label: "Leakage Detection" },
+               { href: "service", label: "Commercial Plumbing" },
+               { href: "service", label: "Industrial Plumbing" },
+               { href: "service", label: "Residential Plumbing" },
+               { href: "service", label: "Remote area Plumbing" },
+               { href: "service", label: "Bathroom Kitchen Renovation" },
+               { href: "service", label: "Any other Requests" },
             ].map((item, index) => (
               <a
                 key={index}
                 href={item.href}
-                className="block px-4 py-2 text-[#3E180E] hover:bg-gray-200"
+                className="block text-left px-4 py-2 text-[#3E180E] hover:bg-gray-200"
                 onClick={() => setIsServicesOpen(false)}
               >
                 {item.label}
