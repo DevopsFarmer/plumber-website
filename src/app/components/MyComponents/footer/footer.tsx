@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 ">
+          <div className="grid grid-cols-3 sm:grid-cols-3 ">
             {footerSections.map((section, index) => (
               <div key={index}>
                 <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
