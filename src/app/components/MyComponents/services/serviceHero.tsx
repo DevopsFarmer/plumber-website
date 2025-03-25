@@ -1,4 +1,4 @@
-import HeroSection from "./serviceHome/serviceHome";
+import Home from "./serviceHome/serviceHome";
 
 
 const ServicePage = () => {
@@ -7,13 +7,13 @@ const ServicePage = () => {
     description: [
       
     ],
-    buttonText: "Book Now",
-    imageUrl: "/serviceImg/home/unsplash4PPY1v2xChU.jpg", // Corrected path
+    buttonText: "Call Us!!",
+    imageUrl: "/serviceImg/home/unsplash_4PPY1v2xChU.png", // Corrected path
   };
 
   return (
     <div>
-      <HeroSection {...heroData} />
+      <Home {...heroData} />
     </div>
   );
 };

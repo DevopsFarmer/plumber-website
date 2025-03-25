@@ -29,32 +29,38 @@ const FAQCard = () => {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gray-100 dark:bg-gray-900 flex flex-col items-center justify-center p-6">
-      <h2 className="text-4xl font-bold text-gray-800 dark:text-white mb-4 text-center">
+    <div className="w-full min-h-screen bg-white flex flex-col justify-center p-6 ">
+      <h2 className="text-[#3E180E] text-4xl font-bold mb-4 ">
         Frequently Asked Questions
       </h2>
-      <p className="text-gray-600 dark:text-gray-300 mb-6 text-center">
-        Your questions, Answered.
+      <p className="text-[#3E180E] font-bold text-lg mb-6">
+        Your questions, Answered. _______
       </p>
 
-      <div className="w-full max-w-6xl">
-        {faqs.map((faq, index) => (
-          <div key={index} className="bg-blue-900 text-white rounded-lg shadow-md mb-4 w-full">
-            <button
-              onClick={() => toggleFAQ(index)}
-              className="flex justify-between items-center w-full text-left px-6 py-4 font-semibold"
-            >
-              <span dangerouslySetInnerHTML={{ __html: `Q. ${faq.question}` }} />
-              <ChevronDown
-                className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}
-              />
-            </button>
-            {openIndex === index && (
-              <div className="px-6 py-4 bg-blue-800 text-gray-200">{faq.answer}</div>
-            )}
-          </div>
-        ))}
+      <div className="flex justify-center items-center">
+  <div className="w-full max-w-6xl bg-white p-6 rounded-lg shadow-lg">
+    {faqs.map((faq, index) => (
+      <div
+        key={index}
+        className="bg-[#3E180E] text-white text-center rounded-lg shadow-md mb-4 w-full bg-gradient-to-r from-[#76200F] to-[#A53C27]"
+      >
+        <button
+          onClick={() => toggleFAQ(index)}
+          className="flex justify-between items-center w-full text-left px-6 py-4 font-semibold"
+        >
+          <span dangerouslySetInnerHTML={{ __html: `Q. ${faq.question}` }} />
+          <ChevronDown
+            className={`transition-transform duration-300 ${openIndex === index ? "rotate-180" : ""}`}
+          />
+        </button>
+        {openIndex === index && (
+          <div className="px-6 py-4 text-[#3E180E] opacity-80">{faq.answer}</div>
+        )}
       </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 };
