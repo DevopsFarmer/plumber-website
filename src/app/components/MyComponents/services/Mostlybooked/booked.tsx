@@ -9,7 +9,7 @@ const services = [
 
 const ServicesList: React.FC = () => {
   return (
-    <section className="p-6 bg-[#FFFFFF] flex flex-col">
+    <section className="p-6 md:px-20 bg-[#FFFFFF] flex flex-col">
        <div className="container px-6 flex items-center gap-4 mt-6 mb-6">
         <h2 className="text-3xl font-bold text-[#3E180E] whitespace-nowrap">
         Mostly Booked
