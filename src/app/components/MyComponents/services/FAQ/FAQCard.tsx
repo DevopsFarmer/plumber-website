@@ -46,7 +46,7 @@ const FAQCard = () => {
   return (
     <div className="w-full md:px-20 min-h-screen bg-white flex flex-col justify-center p-6 ">
       <div className="container px-6 flex items-center gap-4 mt-6 mb-6">
-        <h2 className="text-3xl font-bold text-[#3E180E] whitespace-nowrap">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#3E180E] whitespace-nowrap">
           Frequently Asked Questions
         </h2>
         <div className="bg-[#D46A34] flex-grow h-[1px]"></div>
