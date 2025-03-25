@@ -29,15 +29,35 @@ const reviews = [
     rating: 5,
     avatar: "/serviceImg/service/Ellipse 22.png",
   },
+  {
+    id: 9,
+    name: "Suresh P.",
+    review: "They did a fantastic job with my plumbing needs. Very professional and efficient!",
+    rating: 4,
+    avatar: "/serviceImg/service/Ellipse 22.png",
+  },
+  {
+    id: 8,
+    name: "Anita R.",
+    review: "Affordable prices and great service! Highly recommend their services in Nagpur.",
+    rating: 5,
+    avatar: "/serviceImg/service/Ellipse 22.png",
+  },
+
 ];
 
 const ReviewSection = () => {
   return (
-    <section className="p-6 sm:p-8 bg-white items-center">
-      <h2 
-      className="text-4xl sm:text-4xl font-bold text-[#3E180E] mb-6">Reviews</h2>
+    <section className="p-6 sm:p-8 bg-[#F9F7E9] items-center">
+       <div className="container px-6 flex items-center gap-4 mt-6 mb-6">
+        <h2 className="text-3xl font-bold text-[#3E180E] whitespace-nowrap">
+        Reviews
+        </h2>
+        <div className="bg-[#D46A34] flex-grow h-[0.5px]"></div>
+      </div>
+   
       
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+      <div className="container pt-10 pb-10 mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {reviews.map((review) => (
           <ReviewCard
             key={review.id}
