@@ -2,26 +2,25 @@ import React from "react";
 import ServiceCard from "./BookingCard";
 
 const services = [
-  { id: 1, title: "Tap Repair", price: 15, imageSrc: "/serviceImg/service/image-1.png" },
-  { id: 2, title: "Flush Tank Repair", price: 32, imageSrc: "/serviceImg/service/image-2.png" },
-  { id: 3, title: "Drainage Pipes", price: 12, imageSrc: "/serviceImg/service/image-3.png" },
+  { id: 1, title: "Gas Fitting", price: 15, imageSrc: "/service/image.png" },
+  { id: 2, title: "Tap Repair", price: 32, imageSrc: "/service/image7.png" },
+  { id: 3, title: "Drainage", price: 12, imageSrc: "/service/image4.png" },
 ];
 
 const ServicesList: React.FC = () => {
   return (
-    <section className="p-6 bg-white flex flex-col">
-      {/* Title */}
-      <h2 className="text-3xl font-bold mb-6 text-[#3E180E]">
+    <section className="p-6 bg-[#FFFFFF] flex flex-col">
+       <div className="container px-6 flex items-center gap-4 mt-6 mb-6">
+        <h2 className="text-3xl font-bold text-[#3E180E] whitespace-nowrap">
         Mostly Booked
-      </h2>
+        </h2>
+        <div className="bg-[#D46A34] flex-grow h-[0.5px]"></div>
+      </div>
 
-      {/* Services Grid */}
      
       <section className="p-6 bg-white flex flex-col items-center">
-      {/* Title */}
     
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 place-items-center w-full max-w-screen-lg">
+      <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 place-items-center w-full max-w-screen-lg">
         {services.map((service) => (
           <ServiceCard key={service.id} title={service.title} price={service.price} imageSrc={service.imageSrc} />
         ))}
