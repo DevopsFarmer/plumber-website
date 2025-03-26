@@ -63,7 +63,7 @@ const Service: React.FC = () => {
           <div className="absolute top-4/7 right-[-90px] transform -translate-y-1/2 bg-white rounded-lg p-6 w-[400px] border-2 shadow-2xl">
             <div className="flex justify-center mb-4">
               <Image
-                src="/image9.png"
+                src={selectedService.icons}
                 alt="Leakage Detection Logo"
                 width={100}
                 height={100}
@@ -86,7 +86,6 @@ const Service: React.FC = () => {
                 className="w-full p-3 border border-gray-300 rounded bg-gray-100 placeholder-black mb-3"
               />
 
-              {/* Call Us Button */}
               <button
                 type="submit"
                 className="w-full bg-[#D46A34] text-white py-3 rounded text-lg font-bold"
