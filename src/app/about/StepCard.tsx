@@ -11,8 +11,8 @@ interface StepCardProps {
 const StepCard: React.FC<StepCardProps> = ({ image, title, highlightedText, description, reverse }) => {
   return (
     <div className={`flex flex-col md:flex-row ${reverse ? "md:flex-row-reverse" : ""} items-center gap-6 p-6 rounded-lg bg-white`}>
-      <div className="w-1/2 ">
-        <img src={image} alt={title} className="h-auto rounded-lg shadow-2xl" />
+      <div className="">
+        <img src={image} alt={title} className=" rounded-lg shadow-2xl" />
       </div>
 
       <div className="w-full md:w-1/2 text-center md:text-left mx-10">
