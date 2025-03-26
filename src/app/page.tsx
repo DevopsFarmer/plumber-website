@@ -1,8 +1,8 @@
-import FAQCard from "./components/home/FAQ/FAQCard";
-import MostlyBooked from "./components/home/Mostlybooked/booked";
-import ReviewSection from "./components/home/review/review";
-import ServicesSection from "./components/home/serviceName/serviceSection";
-import HomeHero from "./components/home/herosection/Herosection";
+import FAQCard from "../components/homeComponents/FAQ/FAQCard";
+import MostlyBooked from "../components/homeComponents/Mostlybooked/booked";
+import ReviewSection from "../components/homeComponents/review/review";
+import ServicesSection from "../components/homeComponents/serviceName/serviceSection";
+import HomeHero from "../components/homeComponents/herosection/Herosection";
 
 const ServicePage = () => {
   return (
