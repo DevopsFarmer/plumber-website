@@ -70,25 +70,7 @@ const ReviewSection = () => {
     ))}
   </div>
 
-  <div className="absolute bottom-0 left-0 w-full">
-    <svg
-      className="w-full h-auto"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320"
-    >
-      <defs>
-        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style={{ stopColor: "#802614", stopOpacity: 1 }} />
-          <stop offset="100%" style={{ stopColor: "#A43C28", stopOpacity: 1 }} />
-        </linearGradient>
-      </defs>
-      <path
-        fill="url(#grad1)"
-        fillOpacity="0.85"
-        d="M0,96L120,112C240,128,480,160,720,154.7C960,149,1200,107,1320,85.3L1440,64L1440,320L1320,320C1200,320,960,320,720,320C480,320,240,320,120,320L0,320Z"
-      ></path>
-    </svg>
-  </div>
+
 </section>
 
   );
