@@ -65,7 +65,7 @@ export default function Footer() {
                         </div>
                       ) : (
                         <a 
-                          href={link.url || "#"}
+                          href= "#"
                           rel="noopener noreferrer"
                           className="hover:underline"
                         >
