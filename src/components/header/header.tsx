@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
-
 export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
@@ -228,7 +227,7 @@ export default function Header() {
                         className="px-4 py-2 text-[#3E180E] justify-center text-center items-center text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
                         onClick={() => {
                           handleNavigate(subItem.replace(/\s+/g, "").trim());
-                          setIsMenuOpen(false); // Close menu after clicking
+                          setIsMenuOpen(false); 
                         }}
                       >
                         {subItem}
