@@ -43,7 +43,7 @@ const Service: React.FC = () => {
       <section className="container pt-30 md:px-20 bg-white mx-auto text-center p-8">
         <div className="flex items-center w-full gap-4">
           <div className="bg-[#D46A34] flex-grow h-[2px]"></div>
-          <h2 className="text-4xl md:text-6xl font-bold text-[#3E180E] text-center whitespace-nowrap">
+          <h2 className="text-2xl md:text-6xl font-bold text-[#3E180E] text-center whitespace-nowrap">
             {selectedService.label.replace(/-/g, " ")}
           </h2>
           <div className="bg-[#D46A34] flex-grow h-[2px]"></div>
@@ -62,7 +62,7 @@ const Service: React.FC = () => {
 
     <div className="flex justify-center mt-6 md:mt-0">
       <div className="bg-white rounded-lg p-6 w-full sm:max-w-[400px] border-2 shadow-2xl 
-                      mx-auto md:mx-0 md:absolute md:top-4/7 md:right-[-90px] md:transform -translate-y-1/2">
+                      mx-auto md:mx-0 md:absolute md:top-4/7 md:right-[-90px] md:transform -translate-y-1/7 md:-translate-y-1/2">
         <div className="flex justify-center mb-4">
           <Image
             src={selectedService.icons}
