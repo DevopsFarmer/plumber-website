@@ -1,4 +1,3 @@
-"use client";
 import FAQCard from "../components/homeComponents/FAQ/FAQCard";
 import MostlyBooked from "../components/homeComponents/Mostlybooked/booked";
 import ReviewSection from "../components/homeComponents/review/review";
