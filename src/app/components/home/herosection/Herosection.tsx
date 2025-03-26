@@ -1,4 +1,4 @@
-import Home from "./serviceHome/serviceHome";
+import Home from "./Home";
 
 
 const ServicePage = () => {
