@@ -1,17 +1,22 @@
 "use client";
 
 import ServiceCard from "./serviceCard";
-
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 const services = [
   { title: "GAS FITTINGS", imageSrc: "/service/image.png" },
   { title: "SEPTIC TANKS", imageSrc: "/service/image1.png" },
-  { title: "HOT WATER SYSTEM", imageSrc: "/service/image3.png" },
+  { title: "Hot water System", imageSrc: "/service/image3.png" },
   { title: "DRAINAGE PIPES", imageSrc: "/service/image4.png" },
-  { title: "INDUSTRIAL PLUMBING", imageSrc: "/service/image5.png" },
-  { title: "BATHROOM & KITCHEN", imageSrc: "/service/image6.png" },
+  { title: "Industrial Plumbing", imageSrc: "/service/image5.png" },
+  { title: "Bathroom Kitchen", imageSrc: "/service/image6.png" },
 ];
 
 export default function ServicesSection() {
+
+
+
+
   return (
     <section className="py-12 md:px-20 bg-[#F9F7E9] transition-colors duration-300">
     <div className="container px-6 flex items-center gap-4 mt-6 mb-6">

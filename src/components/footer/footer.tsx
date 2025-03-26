@@ -1,23 +1,33 @@
 "use client";
-
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 export default function Footer() {
+
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const handleNavigate = async (courseName: string) => {
+    const encodedText = encodeURIComponent(courseName);
+    router.push(`/service?service=${encodedText}`);
+  };
+
   const footerSections = [
     {
       title: "Site Links",
       links: [
-        { name: "Home", url: "#" },
-        { name: "About", url: "#" },
+        { name: "Home" },
+        { name: "About" },
       ],
     },
     {
       title: "Services",
       links: [
-        { name: "Hot Water System", url: "#" },
-        { name: "Leakage Detection", url: "#" },
-        { name: "Commercial Plumbing", url: "#" },
-        { name: "Industrial Plumbing", url: "#" },
-        { name: "Residential Plumbing", url: "#" },
-        { name: "Any Other Requests", url: "#" },
+        { name: "Hot Water System" },
+        { name: "Leakage Detection" },
+        { name: "Commercial Plumbing" },
+        { name: "Industrial Plumbing" },
+        { name: "Residential Plumbing" },
+        { name: "Any Other Requests" },
       ],
     },
     {
@@ -51,14 +61,28 @@ export default function Footer() {
                   {section.title}
                 </h2>
                 <ul className="text-gray-500 font-medium space-y-2">
-                  {section.links.map((link, i) => (
-                    <li key={i}>
-                      <a href={link.url} className="hover:underline" target="_blank" rel="noopener noreferrer">
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+  {section.links.map((link, i) => (
+    <li key={i}>
+      {section.title === "Services" ? (
+        <div 
+          onClick={() => handleNavigate(link.name)}
+          className="hover:underline cursor-pointer"
+        >
+          {link.name}
+        </div>
+      ) : (
+        <a 
+          href= "#"
+          rel="noopener noreferrer"
+          className="hover:underline"
+        >
+          {link.name}
+        </a>
+      )}
+    </li>
+  ))}
+</ul>
+
 
                 {section.title === "Contact Us" && (
                   <div className="mt-4">
@@ -84,3 +108,10 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+
+
+
+
+
