@@ -1,19 +1,17 @@
-import FAQCard from "./components/MyComponents/services/FAQ/FAQCard";
-import MostlyBooked from "./components/MyComponents/services/Mostlybooked/booked";
-import ReviewSection from "./components/MyComponents/services/review/review";
-import ServicesSection from "./components/MyComponents/services/serviceName/serviceSection";
-import ServiceHero from "./components/MyComponents/services/serviceHero"
-
+import FAQCard from "./components/home/FAQ/FAQCard";
+import MostlyBooked from "./components/home/Mostlybooked/booked";
+import ReviewSection from "./components/home/review/review";
+import ServicesSection from "./components/home/serviceName/serviceSection";
+import HomeHero from "./components/home/serviceHero";
 
 const ServicePage = () => {
   return (
-
     <div className="bg-gray-100 dark:bg-gray-900 min-h-screen">
-        <ServiceHero/>
-        <ServicesSection/>
-        <MostlyBooked/>
+      <HomeHero />
+      <ServicesSection />
+      <MostlyBooked />
       <ReviewSection />
-      <FAQCard/>
+      <FAQCard />
     </div>
   );
 };

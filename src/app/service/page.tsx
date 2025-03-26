@@ -1,7 +1,4 @@
 import React from "react";
-
-
-
 const service: React.FC = () => {
   return (
     <div className="bg-white">
