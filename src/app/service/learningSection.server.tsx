@@ -23,6 +23,7 @@ type ServiceName =
 type ServiceData = {
   label: string;
   img: string;
+  icons: string
 };
 
 const serviceOptions: Record<ServiceName, ServiceData> = {
