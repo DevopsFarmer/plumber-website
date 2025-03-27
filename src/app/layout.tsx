@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Header from "./components/MyComponents/header/header";
-import Footer from "./components/MyComponents/footer/footer";
+import Header from "../components/header/header";
+import Footer from "../components/footer/footer";
 
 import "@fontsource/poppins"; // Defaults to 400
 import "@fontsource/poppins/700.css"; // If you need bold text
@@ -32,7 +32,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       <div className="mb-24"> <Header/></div>
+       <div className="mb-12 fixed md:mb-24 z-50"> <Header/></div>
         {children}
         <Footer/>
       </body>
