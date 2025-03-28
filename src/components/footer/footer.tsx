@@ -12,7 +12,7 @@ export default function Footer() {
   const footerSections = [
     {
       title: "Site Links",
-      links: [{ name: "Home" }, { name: "About" }],
+      links: [{ name: "Home", url: "/" }, { name: "About", url: "/about" }],
     },
     {
       title: "Services",
@@ -58,7 +58,16 @@ export default function Footer() {
                     <li key={i}>
                       {section.title === "Services" ? (
                         <div 
-                          onClick={() => handleNavigate(link.name)}
+                        onClick={() =>
+    
+                          handleNavigate(
+                            link.name
+                              .replace(/\s+/g, " ")
+                              .trim()
+                              .replace(/\s/g, "")
+                          )
+                        }
+                         
                           className="hover:underline cursor-pointer"
                         >
                           {link.name}
@@ -75,7 +84,7 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-                  {/* Contact Section - Google Map */}
+           
                   {section.title === "Contact Us" && (
                     <div className="mt-4 flex justify-center sm:justify-start">
                       <iframe
@@ -92,7 +101,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Footer Bottom */}
+       
         <hr className="my-6 border-gray-200" />
         <div className="text-center sm:text-right">
           <span className="text-sm text-gray-500">Copyright &copy; 2025</span>
