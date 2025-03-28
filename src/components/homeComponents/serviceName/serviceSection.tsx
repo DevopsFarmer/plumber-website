@@ -1,6 +1,8 @@
 "use client";
 
 import ServiceCard from "./serviceCard";
+import { motion } from "framer-motion";
+
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 const services = [
@@ -20,9 +22,16 @@ export default function ServicesSection() {
   return (
     <section className="py-12 md:px-20 bg-[#F9F7E9] transition-colors duration-300">
     <div className="container px-6 flex items-center gap-4 mt-6 mb-6">
+
+    <motion.div
+        className="container px-6 flex items-center gap-4 mt-6 mb-6"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, ease: "easeOut" }}>
       <h2 className="text-3xl font-bold text-[#3E180E] whitespace-nowrap">
         Services
       </h2>
+      </motion.div>
       <div className="bg-[#D46A34] flex-grow h-[0.5px]"></div>
     </div>
   

@@ -83,9 +83,10 @@ const FAQCard = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="py-4 text-[#3E180E] text-xl opacity-80">
-                  <div className="bg-[#D46A34] flex-grow h-[1px]"></div>
+                <div className="py-6 px-6 text-[#3E180E] text-left text-xl opacity-80">
+                  <div className="bg-[#D46A34] flex-grow h-[1px] mb-3"></div>
                   {faq.answer}
+                  <div className="bg-[#D46A34] flex-grow h-[1px] mt-3"></div>
                 </div>
               </motion.div>
             </div>
