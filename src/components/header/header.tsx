@@ -58,7 +58,10 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex justify-center items-center text-center text-xl gap-24 py-0">
-          <a href="about" className="relative text-[#3E180E] py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full">
+          <a
+            href="about"
+            className="relative text-[#3E180E] py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
+          >
             ABOUT
           </a>
 
@@ -160,98 +163,103 @@ export default function Header() {
       </div>
 
       {/* Mobile Navigation */}
-    {/* Mobile Navigation */}
-{isMenuOpen && (
-  <div className="w-full bg-[#FCF8E8] flex flex-col items-center space-y-4 shadow-md">
-    <a
-      href="about"
-      className="text-[#3E180E] font-bold text-lg py-3"
-      onClick={() => setIsMenuOpen(false)}
-    >
-      ABOUT
-    </a>
-
-    {/* Services Dropdown (Mobile) */}
-    <div className="relative w-full text-center">
-      <button
-        onClick={() => setIsServicesOpen(!isServicesOpen)}
-        className="text-[#3E180E] font-bold text-lg py-3 w-full"
-      >
-        SERVICES {isServicesOpen ? "▲" : "▼"}
-      </button>
-
-      <AnimatePresence>
-        {isServicesOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="bg-[#FCF8E8]  shadow-md rounded-md w-full px-4 py-2 space-y-2"
+      {/* Mobile Navigation */}
+      {isMenuOpen && (
+        <div className="w-full bg-[#FCF8E8] flex flex-col items-center space-y-4 shadow-md">
+          <a
+            href="about"
+            className="text-[#3E180E] font-bold text-lg py-3"
+            onClick={() => setIsMenuOpen(false)}
           >
-            {services.map((item, index) => (
-              <div key={index} className="text-left">
-                {/* Parent Service */}
-                <div
-                  className="flex justify-center text-center items-center  px-4 py-2 text-[#3E180E] text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
-                  onClick={() => {
-                    if (item.drop) {
-                      setOpenSubMenu(openSubMenu === item.label ? null : item.label);
-                    } else {
-                      handleNavigate(item.label.replace(/\s+/g, "").trim());
-                      setIsMenuOpen(false); 
-                    }
-                  }}
-                >
-                  {item.label}
-                  {item.drop && (
-                    <ChevronRight
-                      size={16}
-                      className={`transition-transform ${openSubMenu === item.label ? "rotate-90" : ""}`}
-                    />
-                  )}
-                </div>
+            ABOUT
+          </a>
 
-                {/* Sub-options */}
-                {item.drop && openSubMenu === item.label && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -5 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -5 }}
-                    transition={{ duration: 0.3 }}
-                    className="pl-6 space-y-1"
-                  >
-                    {item.drop.map((subItem, subIndex) => (
+          {/* Services Dropdown (Mobile) */}
+          <div className="relative w-full text-center">
+            <button
+              onClick={() => setIsServicesOpen(!isServicesOpen)}
+              className="text-[#3E180E] font-bold text-lg py-3 w-full"
+            >
+              SERVICES {isServicesOpen ? "▲" : "▼"}
+            </button>
+
+            <AnimatePresence>
+              {isServicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="bg-[#FCF8E8]  shadow-md rounded-md w-full px-4 py-2 space-y-2"
+                >
+                  {services.map((item, index) => (
+                    <div key={index} className="text-left">
+                      {/* Parent Service */}
                       <div
-                        key={subIndex}
-                        className="px-4 py-2 text-[#3E180E] justify-center text-center items-center text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                        className="flex justify-center text-center items-center  px-4 py-2 text-[#3E180E] text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
                         onClick={() => {
-                          handleNavigate(subItem.replace(/\s+/g, "").trim());
-                          setIsMenuOpen(false); 
+                          if (item.drop) {
+                            setOpenSubMenu(
+                              openSubMenu === item.label ? null : item.label
+                            );
+                          } else {
+                            handleNavigate(
+                              item.label.replace(/\s+/g, "").trim()
+                            );
+                            setIsMenuOpen(false);
+                          }
                         }}
                       >
-                        {subItem}
+                        {item.label}
+                        {item.drop && (
+                          <ChevronRight
+                            size={16}
+                            className={`transition-transform ${openSubMenu === item.label ? "rotate-90" : ""}`}
+                          />
+                        )}
                       </div>
-                    ))}
-                  </motion.div>
-                )}
-              </div>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
 
-    <a
-      href="contact"
-      className="bg-[#3E180E] text-white font-bold px-4 py-3 w-full text-center bg-gradient-to-r from-[#76200F] to-[#A53C27]"
-      onClick={() => setIsMenuOpen(false)}
-    >
-      CONTACT US
-    </a>
-  </div>
-)}
+                      {/* Sub-options */}
+                      {item.drop && openSubMenu === item.label && (
+                        <motion.div
+                          initial={{ opacity: 0, y: -5 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -5 }}
+                          transition={{ duration: 0.3 }}
+                          className="pl-6 space-y-1"
+                        >
+                          {item.drop.map((subItem, subIndex) => (
+                            <div
+                              key={subIndex}
+                              className="px-4 py-2 text-[#3E180E] justify-center text-center items-center text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                              onClick={() => {
+                                handleNavigate(
+                                  subItem.replace(/\s+/g, "").trim()
+                                );
+                                setIsMenuOpen(false);
+                              }}
+                            >
+                              {subItem}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
 
+          <a
+            href="contact"
+            className="bg-[#3E180E] text-white font-bold px-4 py-3 w-full text-center bg-gradient-to-r from-[#76200F] to-[#A53C27]"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            CONTACT US
+          </a>
+        </div>
+      )}
     </header>
   );
 }

@@ -12,7 +12,10 @@ export default function Footer() {
   const footerSections = [
     {
       title: "Site Links",
-      links: [{ name: "Home" }, { name: "About" }],
+      links: [
+        { name: "Home", url: "/" },
+        { name: "About", url: "/about" },
+      ],
     },
     {
       title: "Services",
@@ -41,13 +44,16 @@ export default function Footer() {
     <footer className="bg-[#FCF8E8] py-12">
       <div className="mx-auto w-full max-w-screen-xl">
         <div className="flex flex-wrap justify-between items-center gap-6">
-
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center sm:text-left">
-          <div className="mb-6  md:mb-0">
-            <a href="/" className="flex items-center justify-center ">
-              <img src="/aboutImg/image 195.png" className="h-40 sm:h-60" alt="Logo" />
-            </a>
-          </div>
+            <div className="mb-6  md:mb-0">
+              <a href="/" className="flex items-center justify-center ">
+                <img
+                  src="/aboutImg/image 195.png"
+                  className="h-40 sm:h-60"
+                  alt="Logo"
+                />
+              </a>
+            </div>
             {footerSections.map((section, index) => (
               <div key={index}>
                 <h2 className="mb-4 text-sm font-semibold text-gray-900 uppercase">
@@ -57,15 +63,22 @@ export default function Footer() {
                   {section.links.map((link, i) => (
                     <li key={i}>
                       {section.title === "Services" ? (
-                        <div 
-                          onClick={() => handleNavigate(link.name)}
+                        <div
+                          onClick={() =>
+                            handleNavigate(
+                              link.name
+                                .replace(/\s+/g, " ")
+                                .trim()
+                                .replace(/\s/g, "")
+                            )
+                          }
                           className="hover:underline cursor-pointer"
                         >
                           {link.name}
                         </div>
                       ) : (
-                        <a 
-                          href= "#"
+                        <a
+                          href="#"
                           rel="noopener noreferrer"
                           className="hover:underline"
                         >
@@ -75,24 +88,22 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-                  {/* Contact Section - Google Map */}
-                  {section.title === "Contact Us" && (
-                    <div className="mt-4 flex justify-center sm:justify-start">
-                      <iframe
-                        className="w-full max-w-[320px] h-[150px] sm:h-[180px] rounded-lg shadow-md"
-                        src="https://maps.google.com/maps?q=78+Standley+Crescent,+Gillen,+Alice+Springs&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                        allowFullScreen
-                        loading="lazy"
-                      ></iframe>
-                    </div>
-                  )}
 
+                {section.title === "Contact Us" && (
+                  <div className="mt-4 flex justify-center sm:justify-start">
+                    <iframe
+                      className="w-full max-w-[320px] h-[150px] sm:h-[180px] rounded-lg shadow-md"
+                      src="https://maps.google.com/maps?q=78+Standley+Crescent,+Gillen,+Alice+Springs&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                      allowFullScreen
+                      loading="lazy"
+                    ></iframe>
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Footer Bottom */}
         <hr className="my-6 border-gray-200" />
         <div className="text-center sm:text-right">
           <span className="text-sm text-gray-500">Copyright &copy; 2025</span>
