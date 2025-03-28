@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { getServiceData } from "./learningSection.server";
 import Image from "next/image";
+import Link from "next/link";
 const Service: React.FC = () => {
   const searchParams:any = useSearchParams();
   const service = searchParams.get("service");
@@ -88,13 +89,14 @@ const Service: React.FC = () => {
             placeholder="Phone"
             className="w-full p-3 border border-gray-300 rounded bg-gray-100 placeholder-black mb-3"
           />
-
+        <Link href="tel:+918824760689">
           <button
             type="submit"
             className="w-full bg-[#D46A34] text-white py-3 rounded text-lg font-bold hover:bg-[#b85527] transition"
           >
             Call Us
           </button>
+        </Link>
         </form>
       </div>
     </div>
