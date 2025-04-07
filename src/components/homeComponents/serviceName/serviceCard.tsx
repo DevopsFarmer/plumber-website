@@ -20,63 +20,46 @@ export default function ServiceCard({
   return (
 
     <>
-    {/* <div
-      onClick={() =>
-        handleNavigate(title.replace(/\s+/g, " ").trim().replace(/\s/g, ""))
-      }
-      className="flex transition-transform cursor-pointer transform hover:scale-105 flex-col items-center justify-center text-black rounded-xl shadow-2xl bg-[#D46A34] p-6 text-center w-52 h-80"
-    >
-      <div className="w-24 h-24 flex items-center justify-center overflow-hidden rounded-lg">
-        <Image
-          src={imageSrc}
-          alt={title}
-          width={96}
-          height={96}
-          className="object-cover"
-        />
-      </div>
-      <p className="mt-3 text-xl font-bold uppercase">{title}</p>
-      <p className="mt-3 text-sm font-medium line-clamp-3 ">{text}</p>
 
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-        Read More
-      </button>
-    </div> */}
-
-
-    <div
+<div
   onClick={() =>
     handleNavigate(title.replace(/\s+/g, " ").trim().replace(/\s/g, ""))
   }
-  className="flex transition-transform cursor-pointer transform hover:scale-105 flex-col items-center justify-center text-black rounded-xl shadow-2xl bg-[#D46A34] p-6 text-center w-52 h-80"
+  className="flex transition-transform cursor-pointer hover:scale-105 flex-col items-center justify-between rounded-xl shadow-xl bg-[#D46A34] p-4 sm:p-5 md:p-6 text-center w-full max-w-xs min-h-[22rem] h-auto"
 >
-<div className="w-24 h-24 mb-4 flex items-center justify-center overflow-hidden ">
-  <Image
-    src={imageSrc}
-    alt={title}
-    width={96}
-    height={96}
-    className="w-full h-full object-cover"
-  />
-</div>
+  {/* Image Section */}
+  <div className="w-20 h-20 sm:w-24 sm:h-24 mb-4 flex items-center justify-center overflow-hidden ">
+    <Image
+      src={imageSrc}
+      alt={title}
+      width={96}
+      height={96}
+      className="w-full h-full object-cover"
+    />
+  </div>
 
-
-  <h3 className="text-lg font-semibold text-gray-900  uppercase tracking-wide">
+  {/* Title */}
+  <h3 className="text-sm sm:text-md md:text-lg font-semibold text-black uppercase tracking-wide">
     {title}
   </h3>
-  <p className="mt-2 text-sm text-gray-700  line-clamp-3">
+
+  {/* Description */}
+  <p className="mt-2 text-xs sm:text-sm text-black line-clamp-3 px-2">
     {text}
   </p>
 
+  {/* Button */}
   <button
-    className=" text-sm  border mt-4  font-bold py-2 px-4 border-blue-700 rounded text-blue-600 hover:text-blue-800 transition-colors duration-200"
+    className="text-xs sm:text-sm border mt-4 font-semibold py-1 sm:py-2 px-3 sm:px-4 border-black rounded text-black hover:text-gray-700 hover:border-gray-700 transition-colors duration-200"
     onClick={(e) => {
-      e.stopPropagation(); 
+      e.stopPropagation();
     }}
   >
     Read More →
   </button>
 </div>
+
+
 
     </>
   );
