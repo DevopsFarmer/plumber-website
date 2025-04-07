@@ -46,13 +46,13 @@ const FAQCard = () => {
   return (
     <div className="w-full md:px-20 min-h-screen bg-white flex flex-col justify-center p-6">
       <div className="container px-6 flex items-center gap-4 mt-6 mb-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-[#3E180E] whitespace-nowrap">
+        <h2 className="text-2xl md:text-3xl font-bold text-black whitespace-nowrap">
           Frequently Asked Questions
         </h2>
         <div className="bg-[#D46A34] flex-grow h-[1px]"></div>
       </div>
 
-      <p className="text-[#3E180E] pl-6 font-bold text-xl mb-6">
+      <p className="text-black pl-6 font-bold text-xl mb-6">
         Your questions, Answered.
       </p>
 
@@ -83,7 +83,7 @@ const FAQCard = () => {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden"
               >
-                <div className="py-4 text-[#3E180E] text-xl opacity-80">
+                <div className="py-4 text-black text-xl opacity-80">
                   <div className="bg-[#D46A34] flex-grow h-[1px]"></div>
                   {faq.answer}
                 </div>
