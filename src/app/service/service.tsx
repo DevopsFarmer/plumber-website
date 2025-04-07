@@ -44,7 +44,7 @@ const Service: React.FC = () => {
       <section className="container pt-30 md:px-20 bg-white mx-auto text-center p-8">
         <div className="flex items-center w-full gap-4">
           <div className="bg-[#D46A34] flex-grow h-[2px]"></div>
-          <h2 className="text-2xl md:text-6xl font-bold text-[#3E180E] text-center whitespace-nowrap">
+          <h2 className="text-2xl md:text-6xl font-bold text-black text-center whitespace-nowrap">
             {selectedService.label.replace(/-/g, " ")}
           </h2>
           <div className="bg-[#D46A34] flex-grow h-[2px]"></div>
@@ -74,7 +74,7 @@ const Service: React.FC = () => {
           />
         </div>
 
-        <h2 className="text-center text-lg md:text-xl font-semibold text-[#3E180E]">
+        <h2 className="text-center text-lg md:text-xl font-semibold text-black">
           {selectedService.label.replace(/-/g, " ")}
         </h2>
 

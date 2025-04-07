@@ -16,9 +16,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, price, imageSrc }) => 
         <p className="text-sm text-black">Starting from</p>
         <p className="text-black font-semibold text-lg">${price}</p>
       </div>
-
     </div>
   );
 };
 
 export default ServiceCard;
+
+
+

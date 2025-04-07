@@ -27,7 +27,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl md:text-6xl font-bold text-[#3E180E] text-center whitespace-nowrap"
+            className="text-4xl md:text-6xl font-bold text-black text-center whitespace-nowrap"
           >
             Get in Touch?
           </motion.h2>

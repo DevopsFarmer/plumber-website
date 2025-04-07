@@ -11,10 +11,17 @@ export default function Header() {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPorfolioOpen, setIsPorfolioOpen] = useState(false);
+  const [openSubMenu1, setOpenSubMenu1] = useState<string | null>(null);
   const router = useRouter();
   const handleNavigate = async (courseName: string) => {
     const encodedText = encodeURIComponent(courseName);
     router.push(`/service?service=${encodedText}`);
+  };
+
+  const handleNavigate2 = async (courseName: string) => {
+    const encodedText = encodeURIComponent(courseName);
+    router.push(`/portfolio?portfolio=${encodedText}`);
   };
 
   const services = [
@@ -42,7 +49,7 @@ export default function Header() {
               alt="Company Logo"
               className="w-16 h-16 md:w-24 md:h-24 object-contain"
             />
-            <h2 className="text-[#3E180E] font-bold text-md md:text-sm">
+            <h2 className="text-black font-bold text-md md:text-sm">
               Central Territory <br /> Plumbing Pty Ltd
             </h2>
           </div>
@@ -50,7 +57,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-[#3E180E] text-2xl pr-10"
+          className="md:hidden text-black text-2xl pr-10"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <FiX /> : <FiMenu />}
@@ -60,13 +67,99 @@ export default function Header() {
         <nav className="hidden md:flex justify-center items-center text-center text-xl gap-24 py-0">
         <Link
             href="/"
-            className="relative text-[#3E180E] py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
+            className="relative text-black py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
           >
             HOME
           </Link>
+          <div className="relative">
+           
+            <div
+              className="flex text-black text-lg py-4 cursor-pointer"
+              onMouseEnter={() => setIsPorfolioOpen(true)}
+              onMouseLeave={() => setIsPorfolioOpen(false)}
+            >
+              PORTFOLIO
+              <ChevronDown
+                className={`transition-transform duration-300 ${
+                  isPorfolioOpen ? "rotate-180" : ""
+                }`}
+              />
+            </div>
+
+            {/* Services Dropdown */}
+            <AnimatePresence>
+              {isPorfolioOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="absolute top-full left-0 w-56 bg-[#F9F7E9] shadow-xl text-left z-10"
+                  onMouseEnter={() => setIsPorfolioOpen(true)}
+                  onMouseLeave={() => setIsPorfolioOpen(false)}
+                >
+                  {services.map((item, index) => (
+                    <div
+                      key={index}
+                      className="relative group"
+                      onMouseEnter={() =>
+                        item.drop && setOpenSubMenu1(item.label)
+                      }
+                      onMouseLeave={() => item.drop && setOpenSubMenu1(null)}
+                    >
+                      {/* Parent Service */}
+                      <div
+                        className="block px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer justify-between items-center"
+                        onClick={() =>
+                          !item.drop &&
+                          handleNavigate2(
+                            item.label
+                              .replace(/\s+/g, " ")
+                              .trim()
+                              .replace(/\s/g, "")
+                          )
+                        }
+                      >
+                        <div className="flex items-center justify-between w-full">
+                          {item.label} {item.drop && <ChevronRight size={16} />}
+                        </div>
+                      </div>
+                      {/* Nested Dropdown for Hot Water System */}
+                      {item.drop && openSubMenu1 === item.label && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: -10 }}
+                          transition={{ duration: 0.3, ease: "easeInOut" }}
+                          className="absolute left-full top-0 w-40 bg-[#F9F7E9] shadow-md z-20"
+                        >
+                          {item.drop.map((subItem, subIndex) => (
+                            <div
+                              key={subIndex}
+                              className="px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                              onClick={() =>
+                                handleNavigate2(
+                                  subItem
+                                    .replace(/\s+/g, " ")
+                                    .trim()
+                                    .replace(/\s/g, "")
+                                )
+                              }
+                            >
+                              {subItem}
+                            </div>
+                          ))}
+                        </motion.div>
+                      )}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
           <Link
             href="about"
-            className="relative text-[#3E180E] py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
+            className="relative text-black py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
           >
             ABOUT
           </Link>
@@ -75,7 +168,7 @@ export default function Header() {
           <div className="relative">
             {/* Main SERVICES Button */}
             <div
-              className="flex text-[#3E180E] text-lg py-4 cursor-pointer"
+              className="flex text-black text-lg py-4 cursor-pointer"
               onMouseEnter={() => setIsServicesOpen(true)}
               onMouseLeave={() => setIsServicesOpen(false)}
             >
@@ -110,7 +203,7 @@ export default function Header() {
                     >
                       {/* Parent Service */}
                       <div
-                        className="block px-4 py-2 text-[#3E180E] text-sm hover:bg-[#FF8239] transition-all cursor-pointer justify-between items-center"
+                        className="block px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer justify-between items-center"
                         onClick={() =>
                           !item.drop &&
                           handleNavigate(
@@ -137,7 +230,7 @@ export default function Header() {
                           {item.drop.map((subItem, subIndex) => (
                             <div
                               key={subIndex}
-                              className="px-4 py-2 text-[#3E180E] text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                              className="px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
                               onClick={() =>
                                 handleNavigate(
                                   subItem
@@ -169,12 +262,26 @@ export default function Header() {
       </div>
 
       {/* Mobile Navigation */}
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="w-full bg-[#FCF8E8] flex flex-col items-center space-y-4 shadow-md">
           <Link
+            href="/"
+            className="text-black font-bold text-lg py-3"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            HOME
+          </Link>
+          <Link
             href="about"
-            className="text-[#3E180E] font-bold text-lg py-3"
+            className="text-black font-bold text-lg py-3"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            PORTFOLIO
+          </Link>
+
+          <Link
+            href="about"
+            className="text-black font-bold text-lg py-3"
             onClick={() => setIsMenuOpen(false)}
           >
             ABOUT
@@ -184,7 +291,7 @@ export default function Header() {
           <div className="relative w-full text-center">
             <button
               onClick={() => setIsServicesOpen(!isServicesOpen)}
-              className="text-[#3E180E] font-bold text-lg py-3 w-full"
+              className="text-black font-bold text-lg py-3 w-full"
             >
               SERVICES {isServicesOpen ? "▲" : "▼"}
             </button>
@@ -202,7 +309,7 @@ export default function Header() {
                     <div key={index} className="text-left">
                       {/* Parent Service */}
                       <div
-                        className="flex justify-center text-center items-center  px-4 py-2 text-[#3E180E] text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                        className="flex justify-center text-center items-center  px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
                         onClick={() => {
                           if (item.drop) {
                             setOpenSubMenu(
@@ -237,7 +344,7 @@ export default function Header() {
                           {item.drop.map((subItem, subIndex) => (
                             <div
                               key={subIndex}
-                              className="px-4 py-2 text-[#3E180E] justify-center text-center items-center text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                              className="px-4 py-2 text-black justify-center text-center items-center text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
                               onClick={() => {
                                 handleNavigate(
                                   subItem.replace(/\s+/g, "").trim()
