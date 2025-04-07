@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import emailjs from "emailjs-com";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -20,34 +21,28 @@ export default function ContactForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Format message
-    const message =
+  
+    const subject = "Service Inquiry from Website";
+    const body =
       `Hello, I want to inquire about your services.\n\n` +
-      `🔹 *Name:* ${formData.fullName}\n` +
-      `📧 *Email:* ${formData.email}\n` +
-      `📞 *Phone:* ${formData.phone}\n` +
-      `🔧 *Service:* ${formData.service}\n` +
-      `📝 *Message:* ${formData.message}`;
-
-    // Encode message for URL
-    const encodedMessage = encodeURIComponent(message);
-
-    // Replace with your business WhatsApp number (use international format without +)
-    const whatsappNumber = "919876543210"; // Example: India (+91) 9876543210
-
-    // Open WhatsApp chat with pre-filled message
-    window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
-      "_blank"
-    );
+      `🔹 Name: ${formData.fullName}\n` +
+      `📧 Email: ${formData.email}\n` +
+      `📞 Phone: ${formData.phone}\n` +
+      `🔧 Service: ${formData.service}\n` +
+      `📝 Message: ${formData.message}`;
+  
+    const mailtoLink = `mailto:tiotrilok@gmail.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+  
+    window.location.href = mailtoLink;
   };
+  
 
   return (
-    <form onSubmit={handleSubmit} className="p-6  w-full">
+    <form onSubmit={handleSubmit} className="p-6 w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
-          {/* <label className="block text-[#3E180E] font-medium">Full Name</label> */}
           <input
             type="text"
             name="fullName"
@@ -59,7 +54,6 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          {/* <label className="block text-[#3E180E]  font-medium">Email</label> */}
           <input
             type="email"
             name="email"
@@ -71,7 +65,6 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          {/* <label className="block text-[#3E180E] font-medium">Phone</label> */}
           <input
             type="text"
             name="phone"
@@ -83,7 +76,6 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          {/* <label className="block text-[#3E180E] font-medium">Services</label> */}
           <select
             name="service"
             value={formData.service}
@@ -99,10 +91,7 @@ export default function ContactForm() {
         </div>
       </div>
 
-      {/* Message Box */}
       <div className="mt-4">
-        text
-        {/* <label className="block text-[#3E180E] font-medium">Message</label> */}
         <textarea
           name="message"
           value={formData.message}
@@ -114,13 +103,12 @@ export default function ContactForm() {
         ></textarea>
       </div>
 
-      {/* Submit Button */}
       <div className="mt-4">
         <button
           type="submit"
           className="bg-[#B15B30] text-white px-6 py-2 rounded hover:bg-[#913E1D]"
         >
-          Send via WhatsApp
+          Send Email
         </button>
       </div>
     </form>
