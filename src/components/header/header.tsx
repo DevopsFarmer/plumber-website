@@ -58,12 +58,18 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex justify-center items-center text-center text-xl gap-24 py-0">
-          <a
+        <Link
+            href="/"
+            className="relative text-[#3E180E] py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            HOME
+          </Link>
+          <Link
             href="about"
             className="relative text-[#3E180E] py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
           >
             ABOUT
-          </a>
+          </Link>
 
           {/* Services Dropdown */}
           <div className="relative">
@@ -153,12 +159,12 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          <a
+          <Link
             href="contact"
             className="bg-[#3E180E] text-white font-extralight px-6 py-9  bg-gradient-to-r from-[#76200F] to-[#A53C27]"
           >
             CONTACT US
-          </a>
+          </Link>
         </nav>
       </div>
 
@@ -166,13 +172,13 @@ export default function Header() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="w-full bg-[#FCF8E8] flex flex-col items-center space-y-4 shadow-md">
-          <a
+          <Link
             href="about"
             className="text-[#3E180E] font-bold text-lg py-3"
             onClick={() => setIsMenuOpen(false)}
           >
             ABOUT
-          </a>
+          </Link>
 
           {/* Services Dropdown (Mobile) */}
           <div className="relative w-full text-center">
@@ -251,13 +257,13 @@ export default function Header() {
             </AnimatePresence>
           </div>
 
-          <a
+          <Link
             href="contact"
             className="bg-[#3E180E] text-white font-bold px-4 py-3 w-full text-center bg-gradient-to-r from-[#76200F] to-[#A53C27]"
             onClick={() => setIsMenuOpen(false)}
           >
             CONTACT US
-          </a>
+          </Link>
         </div>
       )}
     </header>

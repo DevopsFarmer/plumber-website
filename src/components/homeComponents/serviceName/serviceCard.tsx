@@ -17,7 +17,7 @@ export default function ServiceCard({ title, imageSrc }: ServiceCardProps) {
   return (
     <div onClick={() =>
       handleNavigate(title.replace(/\s+/g, " ").trim().replace(/\s/g, ""))
-    } className="flex transition-transform cursor-pointer transform hover:scale-105 flex-col items-center justify-center text-[#3E180E] rounded-xl shadow-2xl bg-[#EDEDED] p-6 text-center w-40 h-52">
+    } className="flex transition-transform cursor-pointer transform hover:scale-105 flex-col items-center justify-center text-black rounded-xl shadow-2xl bg-[#D46A34] p-6 text-center w-40 h-52">
       <div className="w-24 h-24 flex items-center justify-center overflow-hidden rounded-lg">
         <Image src={imageSrc} alt={title} width={96} height={96} className="object-cover" />
       </div>
