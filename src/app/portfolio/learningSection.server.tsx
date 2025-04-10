@@ -22,8 +22,13 @@ type PortfolioName =
 
 type PortfolioData = {
   label: string;
+  herotext: string;
+  text1: string;
+  text2: string;
+  text3: string;
+  text4: string;
   img: string;
-  icons: string
+  GalleryImg: string[];
 };
 
 const portfolioOptions: Record<PortfolioName, PortfolioData> = {
@@ -38,6 +43,6 @@ const portfolioOptions: Record<PortfolioName, PortfolioData> = {
 };
 
 
-export const getPortfolioData = (portfolioName: PortfolioName) => {
+export const getPortfolioData = (portfolioName: PortfolioName): PortfolioData => {
   return portfolioOptions[portfolioName] || HotwaterSystem;
 };
