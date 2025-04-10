@@ -1,23 +1,23 @@
 import {
-  HotwaterSystem,
-  LeakageDetection,
-  CommercialPlumbing,
-  IndustrialPlumbing,
-  ResidentialPlumbing,
-  RemoteareaPlumbing,
-  BathroomKitchen,
-  AnyotherRequests,
+  CIVIL,
+  COMMERCIAL,
+  DOMESTIC,
+  LPGANDNATURALGAS,
+  DRAINAGE,
+  SEWERCLEANING,
+  CAMERAINSPECTION,
+  MAINTENANCE,
 } from "./ServiceData";
 
 type ServiceName =
-  | "HotwaterSystem"
-  | "LeakageDetection"
-  | "CommercialPlumbing"
-  | "IndustrialPlumbing"
-  | "ResidentialPlumbing"
-  | "RemoteareaPlumbing"
-  | "BathroomKitchen"
-  | "AnyotherRequests";
+  | "CIVIL"
+  | "COMMERCIAL"
+  | "DOMESTIC"
+  | "LPGANDNATURALGAS"
+  | "DRAINAGE"
+  | "SEWERCLEANING"
+  | "CAMERAINSPECTION"
+  | "MAINTENANCE";
 
 
 type ServiceData = {
@@ -27,17 +27,17 @@ type ServiceData = {
 };
 
 const serviceOptions: Record<ServiceName, ServiceData> = {
-  HotwaterSystem,
-  LeakageDetection,
-  CommercialPlumbing,
-  IndustrialPlumbing,
-  ResidentialPlumbing,
-  RemoteareaPlumbing,
-  BathroomKitchen,
-  AnyotherRequests,
+  CIVIL,
+  COMMERCIAL,
+  DOMESTIC,
+  LPGANDNATURALGAS,
+  DRAINAGE,
+  SEWERCLEANING,
+  CAMERAINSPECTION,
+  MAINTENANCE,
 };
 
 
 export const getServiceData = (serviceName: ServiceName) => {
-  return serviceOptions[serviceName] || HotwaterSystem;
+  return serviceOptions[serviceName] || CIVIL;
 };

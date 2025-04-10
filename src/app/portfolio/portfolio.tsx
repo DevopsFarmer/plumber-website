@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { getPortfolioData } from "./learningSection.server";
+import Link from "next/link";
 const Portfolio: React.FC = () => {
   const searchParams: any = useSearchParams();
   const portfolio = searchParams.get("portfolio");
@@ -48,9 +49,9 @@ const Portfolio: React.FC = () => {
                   {selectedPortfolio.herotext}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <button className="bg-red-600 dark:bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-700 dark:hover:bg-red-800 transition-colors">
-                    Contact US
-                  </button>
+                  <Link  href="tel:+918824760689" className="bg-red-600 dark:bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-700 dark:hover:bg-red-800 transition-colors">
+                  Call Us
+                  </Link>
                   <a
                     href="#"
                     className="text-red-600 dark:text-red-400 hover:text-red-700 dark:hover:text-red-300 flex items-center transition-colors"
@@ -77,10 +78,10 @@ const Portfolio: React.FC = () => {
         </div>
 
         <div className="px-4 py-12 md:px-16 lg:px-32 bg-white text-gray-900">
-          <h2 className="text-2xl md:text-3xl font-semibold text-center text-sky-500 mb-6">
+          <h2 className="text-2xl md:text-3xl font-semibold text-center text-red-500 mb-6">
             {selectedPortfolio.text1}
           </h2>
-          <div className="border-b-4 border-sky-400 w-20 mx-auto mb-10" />
+          <div className="border-b-4 border-red-400 w-20 mx-auto mb-10" />
 
           <h3 className="text-center text-lg md:text-xl font-bold mb-4">
             {selectedPortfolio.text2}
