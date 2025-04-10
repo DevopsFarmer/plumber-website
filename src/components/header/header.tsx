@@ -294,13 +294,52 @@ export default function Header() {
           >
             HOME
           </Link>
-          <Link
-            href="about"
-            className="text-black font-bold text-lg py-3"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            PORTFOLIO
-          </Link>
+      
+
+          <div className="relative w-full text-center">
+            <button
+              onClick={() => setIsPorfolioOpen(!isPorfolioOpen)}
+              className="text-black font-bold text-lg py-3 w-full"
+            >
+              PORTFOLIO {isPorfolioOpen ? "▲" : "▼"}
+            </button>
+
+            <AnimatePresence>
+              {isPorfolioOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="bg-[#FCF8E8]  shadow-md rounded-md w-full px-4 py-2 space-y-2"
+                >
+                  {Porfolio.map((item, index) => (
+                    <div key={index} className="text-left">
+                      {/* Parent Service */}
+                      <div
+                        className="flex justify-center text-center items-center  px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
+                        onClick={() => {
+                          
+                          handleNavigate2(
+                              item.label.replace(/\s+/g, "").trim()
+                            );
+                            setIsMenuOpen(false);
+                          
+                        }}
+                      >
+                        {item.label}
+                      
+                      </div>
+
+                    
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+
 
           <Link
             href="about"
