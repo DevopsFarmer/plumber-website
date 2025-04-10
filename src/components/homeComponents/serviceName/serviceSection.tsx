@@ -62,7 +62,7 @@ export default function ServicesSection() {
         {services.map((service, index) => (
           <div
             key={index}
-            className="text-center p-6 rounded-lg hover:shadow-xl transition-shadow bg-[#ff3300] bg-gradient-to-b from-[#f72a01] to-[#f5e6e2a8] duration-300"
+            className="text-center p-6 rounded-lg hover:shadow-xl transition-shadow bg-[#ff3300be]  duration-300"
            
          >
             <img
@@ -74,7 +74,7 @@ export default function ServicesSection() {
             <p className="text-gray-700 text-sm mb-3">{service.description}</p>
             <a
               href="#"
-              className="text-black-500 font-semibold hover:underline transition"
+              className="text-black-500  hover:underline transition"
               onClick={() =>
                         
                 handleNavigate(
