@@ -1,13 +1,13 @@
 import { Suspense } from 'react'
-import Service  from './portfolio'
-const Service1 = () => {
+import Portfolio  from './portfolio'
+const Portfolio1 = () => {
   return (
    <>
      <Suspense>
-      <Service />
+      <Portfolio />
     </Suspense>
    </>
   );
 };
 
-export default Service1;
+export default Portfolio1;

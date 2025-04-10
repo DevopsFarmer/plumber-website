@@ -7,6 +7,9 @@ import {
   RemoteareaPlumbing,
   BathroomKitchen,
   AnyotherRequests,
+  Gas,
+  Electric,
+  HeatBank
 } from "./PortfolioData";
 
 type PortfolioName =
@@ -17,7 +20,10 @@ type PortfolioName =
   | "ResidentialPlumbing"
   | "RemoteareaPlumbing"
   | "BathroomKitchen"
-  | "AnyotherRequests";
+  | "AnyotherRequests"
+  | "Gas"
+  | "Electric"
+  | "HeatBank";
 
 
 type PortfolioData = {
@@ -40,6 +46,9 @@ const portfolioOptions: Record<PortfolioName, PortfolioData> = {
   RemoteareaPlumbing,
   BathroomKitchen,
   AnyotherRequests,
+  Gas,
+  Electric,
+  HeatBank
 };
 
 

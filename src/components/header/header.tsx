@@ -2,7 +2,7 @@
 import "@fontsource/nunito";
 import "@fontsource/nunito/700.css";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,7 +24,7 @@ export default function Header() {
     router.push(`/portfolio?portfolio=${encodedText}`);
   };
 
-  const services = [
+  const Porfolio = [
     {
       label: "Hot Water System",
       drop: ["Gas", "Electric", "Heat Bank"],
@@ -35,12 +35,35 @@ export default function Header() {
     { label: "Residential Plumbing" },
     { label: "Remote Area Plumbing" },
     { label: "Bathroom Kitchen" },
-    { label: "Any Other Requests" },
+    // { label: "Any Other Requests" },
   ];
+
+  const services = [
+    { label: "CIVIL" },
+    { label: "COMMERCIAL" },
+    { label: "DOMESTIC" },
+    { label: "LPG AND NATURAL GAS" },
+    { label: "DRAINAGE" },
+    { label: "SEWER CLEANING" },
+    { label: "CAMERA INSPECTION" },
+    { label: "MAINTENANCE" },
+  ];
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50); // Shrinks when scrolled more than 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header className="bg-[#FCF8E8] shadow-lg  shadow-black-500/50 fixed top-0 left-0 w-full z-50">
-      <div className="flex justify-between   pl-4 md:pl-6">
+      <div className="flex justify-between  pl-4 md:pl-6">
         {/* Logo Section */}
         <Link href="/" rel="noopener noreferrer">
           <div className="flex items-center space-x-3">
@@ -86,7 +109,7 @@ export default function Header() {
               />
             </div>
 
-            {/* Services Dropdown */}
+            {/* Porfolio Dropdown */}
             <AnimatePresence>
               {isPorfolioOpen && (
                 <motion.div
@@ -98,7 +121,7 @@ export default function Header() {
                   onMouseEnter={() => setIsPorfolioOpen(true)}
                   onMouseLeave={() => setIsPorfolioOpen(false)}
                 >
-                  {services.map((item, index) => (
+                  {Porfolio.map((item, index) => (
                     <div
                       key={index}
                       className="relative group"
@@ -197,15 +220,15 @@ export default function Header() {
                       key={index}
                       className="relative group"
                       onMouseEnter={() =>
-                        item.drop && setOpenSubMenu(item.label)
+                        setOpenSubMenu(item.label)
                       }
-                      onMouseLeave={() => item.drop && setOpenSubMenu(null)}
+                      onMouseLeave={() => setOpenSubMenu(null)}
                     >
                       {/* Parent Service */}
                       <div
                         className="block px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer justify-between items-center"
                         onClick={() =>
-                          !item.drop &&
+                        
                           handleNavigate(
                             item.label
                               .replace(/\s+/g, " ")
@@ -215,11 +238,11 @@ export default function Header() {
                         }
                       >
                         <div className="flex items-center justify-between w-full">
-                          {item.label} {item.drop && <ChevronRight size={16} />}
+                          {item.label} 
                         </div>
                       </div>
                       {/* Nested Dropdown for Hot Water System */}
-                      {item.drop && openSubMenu === item.label && (
+                      {/* {item.drop && openSubMenu === item.label && (
                         <motion.div
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
@@ -244,7 +267,7 @@ export default function Header() {
                             </div>
                           ))}
                         </motion.div>
-                      )}
+                      )} */}
                     </div>
                   ))}
                 </motion.div>
@@ -311,52 +334,19 @@ export default function Header() {
                       <div
                         className="flex justify-center text-center items-center  px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
                         onClick={() => {
-                          if (item.drop) {
-                            setOpenSubMenu(
-                              openSubMenu === item.label ? null : item.label
-                            );
-                          } else {
+                          
                             handleNavigate(
                               item.label.replace(/\s+/g, "").trim()
                             );
                             setIsMenuOpen(false);
-                          }
+                          
                         }}
                       >
                         {item.label}
-                        {item.drop && (
-                          <ChevronRight
-                            size={16}
-                            className={`transition-transform ${openSubMenu === item.label ? "rotate-90" : ""}`}
-                          />
-                        )}
+                      
                       </div>
 
-                      {/* Sub-options */}
-                      {item.drop && openSubMenu === item.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: -5 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -5 }}
-                          transition={{ duration: 0.3 }}
-                          className="pl-6 space-y-1"
-                        >
-                          {item.drop.map((subItem, subIndex) => (
-                            <div
-                              key={subIndex}
-                              className="px-4 py-2 text-black justify-center text-center items-center text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
-                              onClick={() => {
-                                handleNavigate(
-                                  subItem.replace(/\s+/g, "").trim()
-                                );
-                                setIsMenuOpen(false);
-                              }}
-                            >
-                              {subItem}
-                            </div>
-                          ))}
-                        </motion.div>
-                      )}
+                    
                     </div>
                   ))}
                 </motion.div>
