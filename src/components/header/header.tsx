@@ -33,7 +33,7 @@ export default function Header() {
     { label: "Commercial Plumbing" },
     { label: "Industrial Plumbing" },
     { label: "Residential Plumbing" },
-    { label: "Remote Area Plumbing" },
+    { label: "Remote area Plumbing" },
     { label: "Bathroom Kitchen" },
     // { label: "Any Other Requests" },
   ];
