@@ -3,20 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { getPortfolioData } from "./learningSection.server";
 import Link from "next/link";
+
 const Portfolio: React.FC = () => {
   const searchParams: any = useSearchParams();
   const portfolio = searchParams.get("portfolio");
   const [selectedPortfolio, setSelectedPortfolio] = useState<any>(null);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null); 
+  const [selectedImage, setSelectedImage] = useState<string | null>(null); // 👈 For modal
 
-
-  if (!selectedPortfolio) {
-    return (
-      <div className="h-96 max-w-screen-2xl pl-8 mx-auto flex flex-col justify-center border-b-[1px] border-gray-500 text-white items-center bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient">
-        <h1 className="text-2xl md:text-6xl uppercase font-bold">Loading...</h1>
-      </div>
-    );
-  }
   useEffect(() => {
     const fetchData = async () => {
       if (portfolio) {
@@ -28,6 +21,13 @@ const Portfolio: React.FC = () => {
     fetchData();
   }, [portfolio]);
 
+  if (!selectedPortfolio) {
+    return (
+      <div className="h-96 max-w-screen-2xl pl-8 mx-auto flex flex-col justify-center border-b border-gray-500 text-white items-center bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient">
+        <h1 className="text-2xl md:text-6xl uppercase font-bold">Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <>
@@ -51,8 +51,11 @@ const Portfolio: React.FC = () => {
                   {selectedPortfolio.herotext}
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Link  href="tel:+918824760689" className="bg-red-600 dark:bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-700 dark:hover:bg-red-800 transition-colors">
-                  Call Us
+                  <Link
+                    href="tel:+918824760689"
+                    className="bg-red-600 dark:bg-red-700 text-white px-6 py-2 rounded-md hover:bg-red-700 dark:hover:bg-red-800 transition-colors"
+                  >
+                    Call Us
                   </Link>
                   <a
                     href="#"
@@ -66,9 +69,9 @@ const Portfolio: React.FC = () => {
                       viewBox="0 0 24 24"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M9 5l7 7-7 7"
                       />
                     </svg>
@@ -145,26 +148,28 @@ const Portfolio: React.FC = () => {
         </section>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 md:mx-20">
-        {selectedPortfolio.GalleryImg.map((item: string, index: number) => (
-          <div key={index} className="group cursor-pointer relative">
-            <img
-              src={item}
-              alt={`Image ${index + 1}`}
-              className="w-full h-48 object-cover rounded-lg transition-transform transform group-hover:scale-105"
-            />
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-              <button
-                onClick={() => setSelectedImage(item)} // 👈 open modal
-                className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
-              >
-                View
-              </button>
+          {selectedPortfolio.GalleryImg.map((item: string, index: number) => (
+            <div key={index} className="group cursor-pointer relative">
+              <img
+                src={item}
+                alt={`Image ${index + 1}`}
+                className="w-full h-48 object-cover rounded-lg transition-transform transform group-hover:scale-105"
+              />
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <button
+                  onClick={() => setSelectedImage(item)} // 👈 Open modal
+                  className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+                >
+                  View
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-       {/* Modal for full image view */}
-       {selectedImage && (
+
+      {/* Modal for Image Preview */}
+      {selectedImage && (
         <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
           <div className="relative max-w-4xl w-full px-4">
             {/* Close Button */}
@@ -183,7 +188,7 @@ const Portfolio: React.FC = () => {
           </div>
         </div>
       )}
-      </div>
+
       <div className="bg-[#f2f9fc] py-16 text-center px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
           Have a project in mind?
@@ -193,7 +198,7 @@ const Portfolio: React.FC = () => {
           solution for your needs.
         </p>
         <a
-          href="#contact" // Replace with your actual contact section or page
+          href="#contact"
           className="inline-block bg-[#00a9f1] text-white font-bold py-3 px-6 rounded-md hover:bg-[#0092d1] transition duration-300"
         >
           CONTACT SATORI
