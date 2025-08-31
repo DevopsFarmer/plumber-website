@@ -7,7 +7,16 @@ const Portfolio: React.FC = () => {
   const searchParams: any = useSearchParams();
   const portfolio = searchParams.get("portfolio");
   const [selectedPortfolio, setSelectedPortfolio] = useState<any>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null); 
 
+
+  if (!selectedPortfolio) {
+    return (
+      <div className="h-96 max-w-screen-2xl pl-8 mx-auto flex flex-col justify-center border-b-[1px] border-gray-500 text-white items-center bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient">
+        <h1 className="text-2xl md:text-6xl uppercase font-bold">Loading...</h1>
+      </div>
+    );
+  }
   useEffect(() => {
     const fetchData = async () => {
       if (portfolio) {
@@ -19,13 +28,6 @@ const Portfolio: React.FC = () => {
     fetchData();
   }, [portfolio]);
 
-  if (!selectedPortfolio) {
-    return (
-      <div className="h-96 max-w-screen-2xl pl-8 mx-auto flex flex-col justify-center border-b-[1px] border-gray-500 text-white items-center bg-white dark:bg-clip-bg dark:bg-transparent dark:bg-logo-gradient">
-        <h1 className="text-2xl md:text-6xl uppercase font-bold">Loading...</h1>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -143,21 +145,44 @@ const Portfolio: React.FC = () => {
         </section>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 md:mx-20">
-          {selectedPortfolio.GalleryImg.map((item: string, index: number) => (
-            <div key={index} className="group cursor-pointer relative">
-              <img
-                src={item}
-                alt={`Image ${index + 1}`}
-                className="w-full h-48 object-cover rounded-lg transition-transform transform group-hover:scale-105"
-              />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                <button className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors">
-                  View
-                </button>
-              </div>
+        {selectedPortfolio.GalleryImg.map((item: string, index: number) => (
+          <div key={index} className="group cursor-pointer relative">
+            <img
+              src={item}
+              alt={`Image ${index + 1}`}
+              className="w-full h-48 object-cover rounded-lg transition-transform transform group-hover:scale-105"
+            />
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <button
+                onClick={() => setSelectedImage(item)} // 👈 open modal
+                className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+              >
+                View
+              </button>
             </div>
-          ))}
+          </div>
+        ))}
+      </div>
+       {/* Modal for full image view */}
+       {selectedImage && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="relative max-w-4xl w-full px-4">
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImage(null)}
+              className="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 rounded-full px-3 py-1 text-sm"
+            >
+              ✕
+            </button>
+            {/* Full Image */}
+            <img
+              src={selectedImage}
+              alt="Full View"
+              className="w-full max-h-[90vh] object-contain rounded-lg"
+            />
+          </div>
         </div>
+      )}
       </div>
       <div className="bg-[#f2f9fc] py-16 text-center px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
