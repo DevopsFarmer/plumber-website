@@ -2,9 +2,22 @@
 import React, { useState } from "react";
 import { GalleryImg } from "./galleryData";
 import Image from "next/image";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const Gallery: React.FC = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+  const handlePrev = () => {
+    if (selectedImageIndex === null) return;
+    setSelectedImageIndex(
+      (selectedImageIndex - 1 + GalleryImg.length) % GalleryImg.length
+    );
+  };
+
+  const handleNext = () => {
+    if (selectedImageIndex === null) return;
+    setSelectedImageIndex((selectedImageIndex + 1) % GalleryImg.length);
+  };
 
   return (
     <>
@@ -36,7 +49,7 @@ const Gallery: React.FC = () => {
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
-                  onClick={() => setSelectedImage(item)}
+                  onClick={() => setSelectedImageIndex(index)}
                   className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
                 >
                   View
@@ -48,25 +61,41 @@ const Gallery: React.FC = () => {
       </div>
 
       {/* Modal */}
-      {selectedImage && (
+      {selectedImageIndex !== null && (
         <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="relative max-w-3xl w-full p-4">
-          <button
-            onClick={() => setSelectedImage(null)}
-            className="absolute top-2 right-2 z-50 bg-white rounded-full px-3 py-1 text-black font-bold shadow hover:bg-gray-200"
-          >
-            ✕
-          </button>
+          <div className="relative max-w-3xl w-full p-4 flex items-center justify-center">
+            {/* Prev Button */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 z-50"
+            >
+              <FaChevronLeft />
+            </button>
+
+            {/* Next Button */}
+            <button
+              onClick={handleNext}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 z-50"
+            >
+              <FaChevronRight />
+            </button>
+
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedImageIndex(null)}
+              className="absolute top-2 right-2 z-50 bg-white rounded-full px-3 py-1 text-black font-bold shadow hover:bg-gray-200"
+            >
+              ✕
+            </button>
 
             <div className="relative w-full h-[80vh]">
-            <Image
-              src={selectedImage}
-              alt="Selected"
-              fill
-              sizes="100vw"
-              className="object-contain rounded-lg shadow-lg pointer-events-none"
-            />
-
+              <Image
+                src={GalleryImg[selectedImageIndex]}
+                alt={`Selected Image ${selectedImageIndex + 1}`}
+                fill
+                sizes="100vw"
+                className="object-contain rounded-lg shadow-lg pointer-events-none"
+              />
             </div>
           </div>
         </div>

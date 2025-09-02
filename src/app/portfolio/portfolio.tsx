@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { getPortfolioData } from "./learningSection.server";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import Image from "next/image";
 import Link from "next/link";
 
 const Portfolio: React.FC = () => {
@@ -10,6 +12,21 @@ const Portfolio: React.FC = () => {
   const [selectedPortfolio, setSelectedPortfolio] = useState<any>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null); // 👈 For modal
 
+const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
+
+const handlePrev = () => {
+  if (selectedImageIndex === null) return;
+  setSelectedImageIndex(
+    (selectedImageIndex - 1 + selectedPortfolio.GalleryImg.length) % selectedPortfolio.GalleryImg.length
+  );
+};
+
+const handleNext = () => {
+  if (selectedImageIndex === null) return;
+  setSelectedImageIndex((selectedImageIndex + 1) % selectedPortfolio.GalleryImg.length);
+};
+
+  
   useEffect(() => {
     const fetchData = async () => {
       if (portfolio) {
@@ -157,7 +174,7 @@ const Portfolio: React.FC = () => {
               />
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <button
-                  onClick={() => setSelectedImage(item)} // 👈 Open modal
+                  onClick={() => setSelectedImageIndex(index)} 
                   className="bg-white text-gray-800 px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors"
                 >
                   View
@@ -169,25 +186,43 @@ const Portfolio: React.FC = () => {
       </div>
 
       {/* Modal for Image Preview */}
-      {selectedImage && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
-          <div className="relative max-w-4xl w-full px-4">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedImage(null)}
-              className="absolute top-4 right-4 text-white bg-red-600 hover:bg-red-700 rounded-full px-3 py-1 text-sm"
-            >
-              ✕
-            </button>
-            {/* Full Image */}
-            <img
-              src={selectedImage}
-              alt="Full View"
-              className="w-full max-h-[90vh] object-contain rounded-lg"
-            />
-          </div>
-        </div>
-      )}
+       {selectedImageIndex !== null && (
+           <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+             <div className="relative max-w-3xl w-full p-4 flex items-center justify-center">
+               {/* Prev Button */}
+               <button
+                 onClick={handlePrev}
+                 className="absolute left-2 top-1/2 transform -translate-y-1/2 text-white text-3xl p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 z-50"
+               >
+                 <FaChevronLeft />
+               </button>
+   
+               {/* Next Button */}
+               <button
+                 onClick={handleNext}
+                 className="absolute right-2 top-1/2 transform -translate-y-1/2 text-white text-3xl p-2 bg-black bg-opacity-50 rounded-full hover:bg-opacity-75 z-50"
+               >
+                 <FaChevronRight />
+               </button>
+   
+               {/* Close Button */}
+               <button
+                 onClick={() => setSelectedImageIndex(null)}
+                 className="absolute top-2 right-2 z-50 bg-white rounded-full px-3 py-1 text-black font-bold shadow hover:bg-gray-200"
+               >
+                 ✕
+               </button>
+   
+               <div className="relative w-full h-[80vh]">
+                 <img
+                   src={selectedPortfolio.GalleryImg[selectedImageIndex]}
+                   alt={`Selected Image ${selectedImageIndex + 1}`}
+                   className="object-contain rounded-lg w-full h-full shadow-lg pointer-events-none"
+                 />
+               </div>
+             </div>
+           </div>
+         )}
 
       <div className="bg-[#f2f9fc] py-16 text-center px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
