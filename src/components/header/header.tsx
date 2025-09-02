@@ -328,6 +328,13 @@ export default function Header() {
           >
             ABOUT
           </Link>
+          <Link
+            href="gallery"
+            className="text-black font-bold text-lg py-3"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            GALLERY
+          </Link>
 
           {/* Services Dropdown (Mobile) */}
           <div className="relative w-full text-center">
