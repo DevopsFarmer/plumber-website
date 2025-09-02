@@ -187,6 +187,13 @@ export default function Header() {
             ABOUT
           </Link>
 
+          <Link
+            href="gallery"
+            className="relative text-black py-4 after:absolute after:left-0 after:bottom-0 after:w-0 after:h-[2px] after:bg-[#3E180E] after:transition-all after:duration-300 hover:after:w-full"
+          >
+            GALLERY
+          </Link>
+
           {/* Services Dropdown */}
           <div className="relative">
             {/* Main SERVICES Button */}
@@ -241,33 +248,6 @@ export default function Header() {
                           {item.label} 
                         </div>
                       </div>
-                      {/* Nested Dropdown for Hot Water System */}
-                      {/* {item.drop && openSubMenu === item.label && (
-                        <motion.div
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          exit={{ opacity: 0, x: -10 }}
-                          transition={{ duration: 0.3, ease: "easeInOut" }}
-                          className="absolute left-full top-0 w-40 bg-[#F9F7E9] shadow-md z-20"
-                        >
-                          {item.drop.map((subItem, subIndex) => (
-                            <div
-                              key={subIndex}
-                              className="px-4 py-2 text-black text-sm hover:bg-[#FF8239] transition-all cursor-pointer"
-                              onClick={() =>
-                                handleNavigate(
-                                  subItem
-                                    .replace(/\s+/g, " ")
-                                    .trim()
-                                    .replace(/\s/g, "")
-                                )
-                              }
-                            >
-                              {subItem}
-                            </div>
-                          ))}
-                        </motion.div>
-                      )} */}
                     </div>
                   ))}
                 </motion.div>
